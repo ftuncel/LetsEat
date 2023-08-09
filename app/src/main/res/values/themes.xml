@@ -1,0 +1,14 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.LetsEat" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.LetsEat" parent="Base.Theme.LetsEat" >
+        <item name="colorPrimaryDark">@color/mainBGColor</item>
+        <item name="colorAccent">@color/mainBGColor</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="android:statusBarColor">@color/mainBGColor</item>
+    </style>
+</resources>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="productToolbarTitle"
+            type="String" />
+        <variable
+            name="productFragmentDataBindingVariable"
+            type="com.ferhattuncel.letseat.ui.fragment.ProductFragment" />
+        <variable
+            name="productEntityDataBindingVariable"
+            type="com.ferhattuncel.letseat.data.entity.Product" />
+        <variable
+            name="quantityDataBindingVariable"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragment.ProductFragment">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarProduct"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/mainBGColor"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tbtv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/pacifico"
+                android:text="@{productToolbarTitle}"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                tools:layout_editor_absoluteX="179dp"
+                tools:layout_editor_absoluteY="17dp" />
+
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_keyboard_arrow_left_36_white"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <Button
+            android:id="@+id/btnProductAdd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/mainBGColor"
+            android:text="Sepete Ekle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/iwProductPicture"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ayran"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarProduct" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabProductDown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:clickable="true"
+            android:onClick="@{() -> productFragmentDataBindingVariable.buttonDecrementClick(tvProductQuantity.getText().toString())}"
+            app:backgroundTint="@color/mainBGColor"
+            app:layout_constraintBottom_toBottomOf="@+id/tvProductQuantity"
+            app:layout_constraintEnd_toStartOf="@+id/tvProductQuantity"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvProductQuantity"
+            app:srcCompat="@drawable/baseline_keyboard_arrow_down_36_white" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabProductUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:clickable="true"
+            android:onClick="@{() -> productFragmentDataBindingVariable.buttonIncrementClick(tvProductQuantity.getText().toString())}"
+            app:backgroundTint="@color/mainBGColor"
+            app:layout_constraintBottom_toBottomOf="@+id/tvProductQuantity"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tvProductQuantity"
+            app:layout_constraintTop_toTopOf="@+id/tvProductQuantity"
+            app:srcCompat="@drawable/baseline_keyboard_arrow_up_36_white" />
+
+        <TextView
+            android:id="@+id/tvProductQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{quantityDataBindingVariable}"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/fabProductCart"
+            app:layout_constraintEnd_toStartOf="@+id/fabProductUp"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/fabProductDown"
+            app:layout_constraintTop_toBottomOf="@+id/tvProductPrice" />
+
+        <TextView
+            android:id="@+id/tvProductName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{productEntityDataBindingVariable.name}"
+            android:textColor="@color/mainBGColor"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iwProductPicture" />
+
+        <TextView
+            android:id="@+id/tvProductPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{String.format(`%s ₺`, productEntityDataBindingVariable.price)}"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvProductName" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabProductCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:onClick="@{()->productFragmentDataBindingVariable.fabActionGoToCart(fabProductCart)}"
+            app:backgroundTint="@color/btnApproveBGColor"
+            app:fabSize="auto"
+            app:layout_constraintBottom_toTopOf="@+id/btnProductAdd"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/baseline_shopping_cart_24" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

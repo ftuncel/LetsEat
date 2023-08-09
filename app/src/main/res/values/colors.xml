@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="mainBGColor">#EF5350</color> <!-- red 400 -->
+    <color name="btnBasketBGColor">#9E9E9E</color> <!-- grey 500 -->
+    <color name="btnApproveBGColor">#607D8B</color> <!-- bluegrey 500 -->
+
+    <!--
+    <color name="mainBGColor">#EF5350</color> red 400
+    <color name="mainBGColor">#9E9E9E</color> grey 500
+    <color name="mainBGColor">#607D8B</color> bluegrey 500
+    <color name="mainBGColor">#4CAF50</color> green 500
+    <color name="mainBGColorDark">#1177CF</color>
+    -->
+    <color name="mainTextColor">#6AC5D5</color>
+    <!-- <color name="mainTextColorDark">#6AC5D5</color> -->
+</resources>
